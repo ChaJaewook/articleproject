@@ -30,6 +30,13 @@ public class ArticleprojectApplication {
 
 		// DTO를 Entitiy로 변환하고 Repository를 통해 DB에 저장
 
+		// 저장된 데이터를 DB에서 확인
+		// Table은 행과 열로 구성돼 있다.
+
+		// Lombok은 코드를 간소화시켜주는 라이브러리,
+		// Getter Setter 생성자 등 필수 메소드를 매번 작성하지않는다.
+		// 여러 필수 코드의 반복 최소화
+		
 
 
 

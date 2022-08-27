@@ -1,5 +1,8 @@
 package com.example.articleproject.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.ToString;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +10,8 @@ import javax.persistence.Id;
 
 //DB가 인식하기위한 어노테이션
 @Entity
+@AllArgsConstructor
+@ToString
 public class Article {
     //Entity에는 기본적으로 대표값이 필요하다.
     //구분짓기위한 값
@@ -19,18 +24,6 @@ public class Article {
     @Column
     private String content;
 
-    public Article(Long id, String title, String content) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-    }
 
-    @Override
-    public String toString() {
-        return "Article{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                '}';
-    }
+
 }
