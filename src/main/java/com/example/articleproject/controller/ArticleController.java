@@ -32,7 +32,7 @@ public class ArticleController {
     //form에서 post로 던지기에 ..
     //form데이터를 dto라는 객체로 받기
     //parameter로 dto를 던져준다.
-    @PostMapping("/articles/creates")
+    @PostMapping("/articles/create")
     public String createArticle(ArticleForm form)
     {
         //println은 실제로는 서버에 과부하를 줄 수 있어 사용하지 않는다.
@@ -51,7 +51,9 @@ public class ArticleController {
         Article saved=articleRepository.save(article);
         //System.out.println(saved.toString());
         log.info(saved.toString());
-        return "";
+
+        //redirect를 한다.
+        return "redirect:/articles/"+saved.getId();
     }
 
     //{id}처리를 통해 id의 값은 변할 수 있다.
@@ -94,4 +96,10 @@ public class ArticleController {
         // 3. 뷰 페이지를 설정
         return"articles/index"; //articles.index.mustache
     }
+    // 13. 링크와 리다이렉트
+    // Link사용시 보다 편리한 요청이
+    // Redirect사용시 보다 편리한 응답이 가능
+    // Link란 미리 정해진 요청을 보낸다. HTML의 <FORM>, <a>태그 사용
+    // Redirect란 Client에게 재요청을 보낸다.
+    // 재요청을 받은 클라이언트는 server에게 다시 요청을 보내 결과를 받는다.
 }

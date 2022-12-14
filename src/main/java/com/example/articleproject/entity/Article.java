@@ -1,6 +1,7 @@
 package com.example.articleproject.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -14,6 +15,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @ToString
 @NoArgsConstructor //디폴트 생성자를 추가하는 annotation
+@Getter
 public class Article {
     //Entity에는 기본적으로 대표값이 필요하다.
     //구분짓기위한 값
@@ -25,6 +27,12 @@ public class Article {
     private String title;
     @Column
     private String content;
+
+    //lombok대체
+    /*public Long getId() {
+        return id;
+    }*/
+
 
     /*Article()
     {

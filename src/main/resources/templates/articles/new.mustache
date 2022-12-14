@@ -1,5 +1,5 @@
 {{>layouts/header}}
-<form class="container" action="/articles/creates" method="post">
+<form class="container" action="/articles/create" method="post">
     <!-- action과 method를 통해 어디로 어떻게 보낼지를 결정한다. -->
     <div class="mb-3">
         <label class="form-label">title</label>
@@ -10,5 +10,7 @@
         <textarea class="form-control" rows="3" name="content"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="/articles">Back</a>
+
 </form>
 {{>layouts/footer}}
