@@ -1,0 +1,22 @@
+{{>layouts/header}}
+<table class="table">
+<thead>
+<tr>
+    <th scope="col">ID</th>
+    <th scope="col">Title</th>
+    <th scope="col">Content</th>
+
+</tr>
+</thead>
+<tbody>
+<!-- 여러개의 데이터면 안 내용이 반복이 된다-->
+{{#articleList}}
+    <tr>
+        <th>{{id}}</th>
+        <td>{{title}}</td>
+        <td>{{content}}</td>
+    </tr>
+{{/articleList}}
+</tbody>
+</table>
+{{>layouts/footer}}

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -69,5 +71,27 @@ public class ArticleController {
 
         // 3) 보여줄 페이지를 설정
         return"articles/show";
+    }
+    @GetMapping("articles")
+    public String index(Model model)
+    {
+        // 1. 모든 article을 가져온다
+        // List<Article> articleEntityList=articleRepository.findAll()
+        // 위와 같은 문구를 사용하면 오류가 난다.
+        // 해결방법으로는
+
+        //1) 캐스팅
+        //List<Article> articleEntityList=(List<Article>)articleRepository.findAll();
+        //2) 원하는 타입으로 바꿔준다.
+        //Iterable<Article> articleEntityList =articleRepository.findAll();
+        //3) 메소드오버라이딩 : ArrayList로 바꿔준다.
+        List<Article>articleEntityList=(List<Article>)articleRepository.findAll();
+
+
+        // 2. 가져온 article 묶음을 뷰로 전달!
+        model.addAttribute("articleList",articleEntityList);
+
+        // 3. 뷰 페이지를 설정
+        return"articles/index"; //articles.index.mustache
     }
 }
