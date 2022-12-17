@@ -96,10 +96,25 @@ public class ArticleController {
         // 3. 뷰 페이지를 설정
         return"articles/index"; //articles.index.mustache
     }
+    // {id} 를 써서 변수화 한다.
+    @GetMapping("/articles/{id}/edit")
+    public String edit(@PathVariable Long id, Model model)
+    {
+        // 수정할 데이터를 가져오기
+        Article articleEntity=articleRepository.findById(id).orElse(null);
+
+        //모델에 데이터 등록
+        model.addAttribute("article",articleEntity);
+
+        // 뷰 페이지 수정
+        return "articles/edit";
+    }
     // 13. 링크와 리다이렉트
     // Link사용시 보다 편리한 요청이
     // Redirect사용시 보다 편리한 응답이 가능
     // Link란 미리 정해진 요청을 보낸다. HTML의 <FORM>, <a>태그 사용
     // Redirect란 Client에게 재요청을 보낸다.
     // 재요청을 받은 클라이언트는 server에게 다시 요청을 보내 결과를 받는다.
+
+
 }
