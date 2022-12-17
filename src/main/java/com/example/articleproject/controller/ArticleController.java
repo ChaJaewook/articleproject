@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -109,6 +110,28 @@ public class ArticleController {
         // 뷰 페이지 수정
         return "articles/edit";
     }
+
+    //@PatchMapping
+    @PostMapping("/articles/update")
+    public String update(ArticleForm form)
+    {
+        log.info((form.toString()));
+
+        //1 : DTO를 엔티티로 변환
+        Article articleEntity= form.toEntity();
+        log.info(articleEntity.toString());
+
+        //2 : 엔티티를 DB로 저장
+        //2-1 : DB에 기존 데이터를 가져온다
+        Article target=articleRepository.findById(articleEntity.getId()).orElse(null);
+
+        //2-2 기존데이터의 값 갱신
+        if(target!=null)
+            articleRepository.save(articleEntity); //엔티티가 db로 갱신
+
+        //3 : 수정 결과를 페이지로 리다이렉트
+        return "redirect:/articles/"+articleEntity.getId();
+    }
     // 13. 링크와 리다이렉트
     // Link사용시 보다 편리한 요청이
     // Redirect사용시 보다 편리한 응답이 가능
@@ -116,5 +139,7 @@ public class ArticleController {
     // Redirect란 Client에게 재요청을 보낸다.
     // 재요청을 받은 클라이언트는 server에게 다시 요청을 보내 결과를 받는다.
 
-
+    /*15. 데이터 수정하기
+    Get(Read), Post(Create), Put(Update), Delete(Delete)
+     */
 }

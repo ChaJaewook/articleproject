@@ -11,11 +11,13 @@ public class ArticleForm {
     //두 개의 데이터를 던져줄 예정이기에
     //두 개의 변수를 만든다.
 
+    private Long id;
     private String title;
     private String content;
 
+
     public Article toEntity() {
         //생성자를 호출
-        return new Article(null,title,content);
+        return new Article(id,title,content);
     }
 }
