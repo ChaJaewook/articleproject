@@ -166,4 +166,12 @@ public class ArticleController {
     일회성으로 사용할 데이터
 
      */
+
+    /*
+    21. 테스트 작성하기
+    TDD
+    1. Write a test that fails
+    2. Make the code work
+    3. Eliminate redundancy
+     */
 }
