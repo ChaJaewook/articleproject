@@ -17,7 +17,7 @@ class ArticleServiceTest {
 
     @Autowired ArticleService articleService;
 
-    @Test
+    /*@Test
     void index() {
         // 예상 시나리오
         Article a=new Article(1L,"가가가가","1111");
@@ -31,7 +31,7 @@ class ArticleServiceTest {
 
         // 비교
         assertEquals(expected.toString(),articles.toString());
-    }
+    }*/
 
     @Test
     void show_성공___존재하는_id_입력() {
@@ -59,7 +59,7 @@ class ArticleServiceTest {
         assertEquals(expected,article);
     }
 
-    @Test
+    /*@Test
     @Transactional //Roll back 될 수 있게해준다.
     void create_성공___title과_content만_있는_dto_입력() {
         //예상
@@ -74,7 +74,7 @@ class ArticleServiceTest {
 
         //비교
         assertEquals(expected.toString(),article.toString());
-    }
+    }*/
 
     @Test
     @Transactional

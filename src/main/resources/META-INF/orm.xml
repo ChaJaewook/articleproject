@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm  http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+                 version="2.2">
+    <!-- result-class는 반환값-->
+    <!-- name은 Comment의 findByNickname을 사용하겠다 -->
+    <named-native-query
+            name="Comment.findByNickname"
+            result-class="com.example.articleproject.entity.Comment">
+        <query>
+            <![CDATA[
+            SELECT
+                *
+            FROM
+                comment
+            WHERE
+                nickname=:nickname
+
+        ]]>
+        </query>
+    </named-native-query>
+
+
+
+
+</entity-mappings>

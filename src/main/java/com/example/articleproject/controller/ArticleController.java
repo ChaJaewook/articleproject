@@ -174,4 +174,10 @@ public class ArticleController {
     2. Make the code work
     3. Eliminate redundancy
      */
+
+    /*
+    22. CRUD Repository에서 발전한 JPA Repository제작
+    일정 페이지의 데이터 조회 및 정렬 기능 제공
+    Paging & Sorting Method 제공
+     */
 }
