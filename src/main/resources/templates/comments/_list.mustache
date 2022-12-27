@@ -17,6 +17,15 @@
                    <!--data-bs-target 클릭했을때 보여줄 타겟 -->
                    수정
                </button>
+
+               <!-- 댓글 삭제버튼-->
+               <!-- 속성으로 삭제할 id추가-->
+               <button type="button"
+                        class="btn btn-sm btn-outline-danger comment-delete-btn"
+                        data-comment-id="{{id}}">
+                   삭제
+               </button>
+
            </div>
            <div class="card-body">
                {{body}}
@@ -123,6 +132,65 @@
 
         });
 
+    });
+}
+</script>
+
+<!-- 댓글 삭제 -->
+<script>
+{
+    //삭제 버튼 선택
+    //이번에는 아이디가 아닌 class #인아닌 .으로 선택
+    // querySelector는 제일 먼저 발견되는 하나만을 작업한다.
+    //const commentDeleteBtn=document.querySelector(".comment-delete-btn");
+
+    //모든 버튼에 대해서 동작되게 설정
+    const commentDeleteBtns=document.querySelectorAll(".comment-delete-btn");
+
+    // 삭제버튼 이벤트 처리
+    /*commentDeleteBtns.addEventListener("click",function(){
+        console.log("삭제버튼이 클릭됐습니다.");
+    });*/
+
+    // 각각의 버튼을 btn으로 설정하고 동작을 실행한다.
+    commentDeleteBtns.forEach(btn=>{
+        btn.addEventListener("click", (event)=>{
+            //console.log("삭제버튼이 클릭됐습니다.");
+            //이벤트 발생요소를 선택
+            //event를 이용해 버튼과 관련된 이벤트를 가져온다.
+            //클릭 이벤트가 발생된 버튼을 가져옴
+            const commentDeleteBtn=event.srcElement;
+
+            // 삭제 댓글 id 가져오기
+            const commentId=commentDeleteBtn.getAttribute("data-comment-id");
+            // 이렇게 $사용할때는 ''홑따옴표 사용하는듯~
+            // 백틱 숫자 1옆에있는거다.
+            console.log("삭제 버튼 클릭 : "+commentId+"번 댓글");
+
+            //삭제 API 호출 및 처리
+            const url="/api/comments/"+commentId;// 백틱 숫자 1번 왼쪽 ~
+            fetch(url,{
+                method:"DELETE"
+            }).then(response=>{
+                // 댓글 삭제 실패 처리
+                if(!response.ok)
+                {
+                    alert("댓글 삭제 실패...!");
+                    return;
+                }
+
+                // 삭제 성공시, 댓글을 화면에서 지움
+
+                //const target=document.querySelector(`#comments-${commentId}`);
+                const target=document.querySelector("#comments-"+commentId);
+
+                target.remove();
+
+                // window.location.reload(); 이것은 새로고침
+                // 삭제와 무슨차이가 있을까?
+                //
+            });
+        });
     });
 }
 </script>
