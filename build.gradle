@@ -13,6 +13,10 @@ repositories {
 }
 //프로젝트 생성을 위한 라이브러리들을 넣는다.
 dependencies {
+	// PostgresSQL 드라이버 추가!
+	runtimeOnly 'org.postgresql:postgresql'
+
+	// Oracle 드라이버
 	//롬복 추가
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'

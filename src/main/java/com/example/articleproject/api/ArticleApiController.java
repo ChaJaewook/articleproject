@@ -125,4 +125,12 @@ public class ArticleApiController {
 //     */
 
     // 트랜잭션 -> 실패 -> 롤백!
+
+    /*
+    29. IoC Container
+    Controller, Service, Repository를 만든다.
+    Inversion of Control : 프로그램 흐름이 개발자 코드가 아닌
+    IoC Container에의해 통제
+    객체간 상호결합을 낮춰 유연하고 객체지향적인 코드 제공
+     */
 }
