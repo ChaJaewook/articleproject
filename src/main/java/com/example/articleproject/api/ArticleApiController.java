@@ -133,4 +133,21 @@ public class ArticleApiController {
     IoC Container에의해 통제
     객체간 상호결합을 낮춰 유연하고 객체지향적인 코드 제공
      */
+
+    /*
+    30. AOP
+    - Loggin, Secure, Transac
+    - 핵심 기능과 별개의 기능이 덕지덕지 붙게된다.
+    - 부가기능을 특정지점에 잘라 넣어 특정 로직을 주입
+    - 간결하고 효율적은 프로그램이 가능하다.
+
+     */
+
+    /*
+    31. ObjectMapper
+    - JSON과 JAVA 객체사이의 변화을 도와준다.
+    - JSON을 자바 객체로(readValue)
+    - 자바 객체를 JSON으로 변환(writeValueAsString)
+
+     */
 }
